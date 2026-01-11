@@ -51,18 +51,18 @@ document.querySelectorAll(".reveal").forEach(el => {
 
 
 /* ================================
-   Navbar Subtle Shadow on Scroll
-   (Light theme friendly)
+   Navbar Scrolled State
 ================================ */
-const nav = document.querySelector("nav");
+const nav = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 20) {
-    nav.style.boxShadow = "0 2px 10px rgba(0,0,0,0.08)";
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
   } else {
-    nav.style.boxShadow = "none";
+    nav.classList.remove("scrolled");
   }
 });
+
 
 /* ================================
    Mobile Hamburger Menu
@@ -71,16 +71,46 @@ const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const links = document.querySelectorAll(".nav-links li");
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+function closeMenu() {
+  navLinks.classList.remove("active");
+  hamburger.classList.remove("active");
+  document.body.style.overflow = ""; // Restore scrolling
+}
+
+function toggleMenu() {
+  const isActive = navLinks.classList.toggle("active");
   hamburger.classList.toggle("active");
+
+  if (isActive) {
+    document.body.style.overflow = "hidden"; // Lock scrolling
+  } else {
+    document.body.style.overflow = "";
+  }
+}
+
+hamburger.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent immediate close from document click
+  toggleMenu();
 });
 
 links.forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    hamburger.classList.remove("active");
-  });
+  link.addEventListener("click", closeMenu);
+});
+
+// Close when clicking outside
+document.addEventListener("click", (e) => {
+  if (navLinks.classList.contains("active") &&
+    !navLinks.contains(e.target) &&
+    !hamburger.contains(e.target)) {
+    closeMenu();
+  }
+});
+
+// Close on resize if returning to desktop view
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768 && navLinks.classList.contains("active")) {
+    closeMenu();
+  }
 });
 
 /* ================================
@@ -170,5 +200,104 @@ modalOverlay.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
     closeProjectModal();
+  }
+});
+
+/* ================================
+   Skill-to-Project Mapping
+================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const skillTags = document.querySelectorAll(".skill-tags span");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  skillTags.forEach(tag => {
+    // Add hover listener
+    tag.addEventListener("mouseenter", () => {
+      const skillName = tag.textContent.trim().toLowerCase();
+
+      projectCards.forEach(card => {
+        // Get all tags inside this card
+        const cardTags = Array.from(card.querySelectorAll(".project-tags span"))
+          .map(s => s.textContent.trim().toLowerCase());
+
+        // Check if map contains skill (partial match or exact)
+        // Using exact match for cleaner results, but robust enough for case
+        if (cardTags.includes(skillName)) {
+          card.classList.add("highlight");
+          card.classList.remove("dimmed");
+        } else {
+          card.classList.add("dimmed");
+          card.classList.remove("highlight");
+        }
+      });
+    });
+
+    // Remove effects on mouse leave
+    tag.addEventListener("mouseleave", () => {
+      projectCards.forEach(card => {
+        card.classList.remove("highlight");
+        card.classList.remove("dimmed");
+      });
+    });
+  });
+});
+
+/* ================================
+   Scroll to Top Logic
+================================ */
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.classList.add("visible");
+  } else {
+    scrollToTopBtn.classList.remove("visible");
+  }
+});
+
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+/* ================================
+   FAQ Accordion Logic
+================================ */
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+
+    // Optional: Close others when one opens (Accordion style)
+    // document.querySelectorAll('.faq-item').forEach(i => {
+    //   if (i !== item) i.classList.remove('active');
+    // });
+
+    item.classList.toggle('active');
+  });
+});
+
+/* ================================
+   Resume Preview Modal
+================================ */
+const resumeModal = document.getElementById('resumeModal');
+
+function openResumePreview() {
+  resumeModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeResumePreview() {
+  resumeModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Close on outside click
+resumeModal.addEventListener('click', (e) => {
+  if (e.target === resumeModal) {
+    closeResumePreview();
   }
 });
