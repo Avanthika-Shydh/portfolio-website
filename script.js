@@ -11,110 +11,47 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-/* ================================
-   Splash Screen Logic
-================================ */
-document.addEventListener("DOMContentLoaded", () => {
-  const splash = document.getElementById("splash-screen");
+function initSkillMapping() {
+  const skillTags = document.querySelectorAll(".skill-tags span");
+  const projectCards = document.querySelectorAll(".project-card");
 
-  // Wait for loading animation to finish (approx 2.5s)
-  setTimeout(() => {
-    splash.classList.add("fade-out");
+  skillTags.forEach(tag => {
+    tag.addEventListener("mouseenter", () => {
+      const skillName = tag.textContent.trim().toLowerCase();
+      projectCards.forEach(card => {
+        const cardTags = Array.from(card.querySelectorAll(".project-tags span"))
+          .map(s => s.textContent.trim().toLowerCase());
+        if (cardTags.includes(skillName)) {
+          card.classList.add("highlight");
+          card.classList.remove("dimmed");
+        } else {
+          card.classList.add("dimmed");
+          card.classList.remove("highlight");
+        }
+      });
+    });
 
-    // Remove from DOM after transition (0.8s) to prevent blocking interactions
-    setTimeout(() => {
-      splash.style.display = "none";
-    }, 800);
-  }, 2500);
-});
-
-/* ================================
-   Scroll Reveal Animation
-================================ */
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px"
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-      observer.unobserve(entry.target); // Only animate once
-    }
+    tag.addEventListener("mouseleave", () => {
+      projectCards.forEach(card => {
+        card.classList.remove("highlight");
+        card.classList.remove("dimmed");
+      });
+    });
   });
-}, observerOptions);
-
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
-
-
-/* ================================
-   Navbar Scrolled State
-================================ */
-const nav = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    nav.classList.add("scrolled");
-  } else {
-    nav.classList.remove("scrolled");
-  }
-});
-
-
-/* ================================
-   Mobile Hamburger Menu
-================================ */
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const links = document.querySelectorAll(".nav-links li");
-
-function closeMenu() {
-  navLinks.classList.remove("active");
-  hamburger.classList.remove("active");
-  document.body.style.overflow = ""; // Restore scrolling
 }
 
-function toggleMenu() {
-  const isActive = navLinks.classList.toggle("active");
-  hamburger.classList.toggle("active");
-
-  if (isActive) {
-    document.body.style.overflow = "hidden"; // Lock scrolling
-  } else {
-    document.body.style.overflow = "";
-  }
+function initFAQ() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('active');
+    });
+  });
 }
 
-hamburger.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent immediate close from document click
-  toggleMenu();
-});
-
-links.forEach(link => {
-  link.addEventListener("click", closeMenu);
-});
-
-// Close when clicking outside
-document.addEventListener("click", (e) => {
-  if (navLinks.classList.contains("active") &&
-    !navLinks.contains(e.target) &&
-    !hamburger.contains(e.target)) {
-    closeMenu();
-  }
-});
-
-// Close on resize if returning to desktop view
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 768 && navLinks.classList.contains("active")) {
-    closeMenu();
-  }
-});
-
 /* ================================
-   Project Modal Logic
+   Project Modal Logic (Global)
 ================================ */
 const projectsData = {
   traffic: {
@@ -154,150 +91,262 @@ const projectsData = {
   }
 };
 
-const modalOverlay = document.getElementById('projectModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalDesc = document.getElementById('modalDescription');
-const modalTechList = document.getElementById('modalTechList');
-const closeModalBtn = document.getElementById('closeModalBtn');
+// Global variables for Modal access
+let modalOverlay, modalTitle, modalDesc, modalTechList, closeModalBtn;
 
-function openProject(projectId) {
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize these immediately as they are in static HTML
+  modalOverlay = document.getElementById('projectModal');
+  modalTitle = document.getElementById('modalTitle');
+  modalDesc = document.getElementById('modalDescription');
+  modalTechList = document.getElementById('modalTechList');
+  closeModalBtn = document.getElementById('closeModalBtn');
+
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeProjectModal);
+  if (modalOverlay) modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeProjectModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+      closeProjectModal();
+    }
+  });
+
+  /* ================================
+   Scroll to Top Logic
+  ================================ */
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  if (scrollToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  /* ================================
+     Resume Preview Modal
+  ================================ */
+  const resumeModal = document.getElementById('resumeModal');
+  if (resumeModal) {
+    window.closeResumePreview = function () {
+      resumeModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+    window.openResumePreview = function () {
+      resumeModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    resumeModal.addEventListener('click', (e) => {
+      if (e.target === resumeModal) {
+        window.closeResumePreview();
+      }
+    });
+  }
+});
+
+// Exposed Global Function for HTML onclick
+window.openProject = function (projectId) {
   const project = projectsData[projectId];
   if (!project) return;
 
-  modalTitle.textContent = project.title;
-  modalDesc.textContent = project.description;
+  if (modalTitle) modalTitle.textContent = project.title;
+  if (modalDesc) modalDesc.textContent = project.description;
+  if (modalTechList) {
+    modalTechList.innerHTML = '';
+    project.tech.forEach(tech => {
+      const li = document.createElement('li');
+      li.textContent = tech;
+      modalTechList.appendChild(li);
+    });
+  }
 
-  // Clear previous tech tags
-  modalTechList.innerHTML = '';
-
-  // Add new tech tags
-  project.tech.forEach(tech => {
-    const li = document.createElement('li');
-    li.textContent = tech;
-    modalTechList.appendChild(li);
-  });
-
-  modalOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
+  if (modalOverlay) {
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+};
 
 function closeProjectModal() {
-  modalOverlay.classList.remove('active');
-  document.body.style.overflow = ''; // Restore scrolling
+  if (modalOverlay) {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 }
 
-// Close button click
-closeModalBtn.addEventListener('click', closeProjectModal);
-
-// Close on click outside
-modalOverlay.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) {
-    closeProjectModal();
-  }
-});
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-    closeProjectModal();
-  }
-});
-
 /* ================================
-   Skill-to-Project Mapping
+   Splash Screen Logic
 ================================ */
 document.addEventListener("DOMContentLoaded", () => {
-  const skillTags = document.querySelectorAll(".skill-tags span");
-  const projectCards = document.querySelectorAll(".project-card");
+  const splash = document.getElementById("splash-screen");
 
-  skillTags.forEach(tag => {
-    // Add hover listener
-    tag.addEventListener("mouseenter", () => {
-      const skillName = tag.textContent.trim().toLowerCase();
+  // Wait for loading animation to finish (approx 2.5s)
+  setTimeout(() => {
+    splash.classList.add("fade-out");
 
-      projectCards.forEach(card => {
-        // Get all tags inside this card
-        const cardTags = Array.from(card.querySelectorAll(".project-tags span"))
-          .map(s => s.textContent.trim().toLowerCase());
+    // Remove from DOM after transition (0.8s) to prevent blocking interactions
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 800);
+  }, 2500);
 
-        // Check if map contains skill (partial match or exact)
-        // Using exact match for cleaner results, but robust enough for case
-        if (cardTags.includes(skillName)) {
-          card.classList.add("highlight");
-          card.classList.remove("dimmed");
-        } else {
-          card.classList.add("dimmed");
-          card.classList.remove("highlight");
-        }
-      });
-    });
-
-    // Remove effects on mouse leave
-    tag.addEventListener("mouseleave", () => {
-      projectCards.forEach(card => {
-        card.classList.remove("highlight");
-        card.classList.remove("dimmed");
-      });
-    });
-  });
+  // START SECTION LOADER
+  loadAllSections();
 });
 
 /* ================================
-   Scroll to Top Logic
+   Section Loader Logic
 ================================ */
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+async function loadAllSections() {
+  const sections = [
+    { id: 'navbar-container', file: 'sections/navbar.html' },
+    { id: 'hero-container', file: 'sections/hero.html' },
+    { id: 'about-container', file: 'sections/about.html' },
+    { id: 'skills-container', file: 'sections/skills.html' },
+    { id: 'education-container', file: 'sections/education.html' },
+    { id: 'certifications-container', file: 'sections/certifications.html' },
+    { id: 'projects-container', file: 'sections/projects.html' },
+    { id: 'faq-container-main', file: 'sections/faq.html' },
+    { id: 'contact-container-main', file: 'sections/contact.html' },
+    { id: 'footer-container', file: 'sections/footer.html' }
+  ];
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.classList.add("visible");
-  } else {
-    scrollToTopBtn.classList.remove("visible");
+  try {
+    // Load all in parallel for speed, but preserve order in DOM (placeholders handle order)
+    await Promise.all(sections.map(section => loadSection(section.id, section.file)));
+
+    // Initialize interactive elements AFTER content is loaded
+    initNavigation();
+    initScrollReveal();
+    initSkillMapping();
+    initFAQ();
+
+    console.log("All sections loaded successfully.");
+  } catch (error) {
+    console.error("Error loading sections:", error);
+    if (window.location.protocol === 'file:') {
+      alert("Note: This website uses modular components. Because you are opening it directly from a file folder (file://), your browser might block loading these files for security. \n\nPlease use a local server (like Live Server in VS Code) to view the full site.");
+    }
   }
-});
-
-scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
-/* ================================
-   FAQ Accordion Logic
-================================ */
-const faqQuestions = document.querySelectorAll('.faq-question');
-
-faqQuestions.forEach(question => {
-  question.addEventListener('click', () => {
-    const item = question.parentElement;
-
-    // Optional: Close others when one opens (Accordion style)
-    // document.querySelectorAll('.faq-item').forEach(i => {
-    //   if (i !== item) i.classList.remove('active');
-    // });
-
-    item.classList.toggle('active');
-  });
-});
-
-/* ================================
-   Resume Preview Modal
-================================ */
-const resumeModal = document.getElementById('resumeModal');
-
-function openResumePreview() {
-  resumeModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
 }
 
-function closeResumePreview() {
-  resumeModal.classList.remove('active');
-  document.body.style.overflow = 'auto';
+async function loadSection(containerId, filePath) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const response = await fetch(filePath);
+  if (!response.ok) throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
+
+  const html = await response.text();
+  container.innerHTML = html;
 }
 
-// Close on outside click
-resumeModal.addEventListener('click', (e) => {
-  if (e.target === resumeModal) {
-    closeResumePreview();
+/* ================================
+   Initialization Wrappers
+   (Moved logic into functions to call after load)
+================================ */
+
+function initNavigation() {
+  /* ================================
+     Smooth Scroll for Navigation
+  ================================ */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  /* ================================
+     Navbar Scrolled State
+  ================================ */
+  const nav = document.querySelector(".navbar");
+  if (nav) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
   }
-});
+
+  /* ================================
+     Mobile Hamburger Menu
+  ================================ */
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const links = document.querySelectorAll(".nav-links li");
+
+  if (hamburger && navLinks) {
+    function closeMenu() {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function toggleMenu() {
+      const isActive = navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+      document.body.style.overflow = isActive ? "hidden" : "";
+    }
+
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    links.forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (navLinks.classList.contains("active") &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768 && navLinks.classList.contains("active")) {
+        closeMenu();
+      }
+    });
+  }
+}
+
+function initScrollReveal() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+  });
+}
+
+

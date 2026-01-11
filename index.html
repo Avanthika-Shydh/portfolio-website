@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/avi/favicon.svg">
   <link rel="stylesheet" href="splash.css" />
   <link rel="stylesheet" href="contact.css" />
 </head>
@@ -34,457 +34,20 @@
     </div>
   </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">Avanthika Shydh</div>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-container">
-      <div class="hero-text">
-        <h1 class="hero-name">
-          Hi, I’m <span>Avanthika Shydh</span>
-        </h1>
-
-        <h2 class="hero-tagline">
-          Building intelligent systems from code to deployment
-        </h2>
-
-        <p class="hero-description">
-          Dual-degree undergraduate specializing in AI-driven perception systems,
-          embedded systems, and data science.
-        </p>
-
-        <div class="hero-buttons">
-          <button onclick="openResumePreview()" class="btn-primary">
-            Resume Preview
-          </button>
-          <a href="#projects" class="btn-secondary">
-            View My Work
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-image-container">
-        <div class="hero-img-placeholder">
-          <!-- Placeholder SVG or Icon -->
-          <i class="fas fa-user-circle"></i>
-        </div>
-      </div>
-    </div>
-  </header>
-
+  <!-- Sections Container -->
+  <div id="navbar-container"></div>
+  <div id="hero-container"></div>
   <div class="divider"></div>
+  <div id="about-container"></div>
+  <div id="skills-container"></div>
+  <div id="education-container"></div>
+  <div id="certifications-container"></div>
+  <div id="projects-container"></div>
+  <div id="faq-container-main"></div>
+  <div id="contact-container-main"></div>
+  <div id="footer-container"></div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section reveal">
-    <div class="about-container">
-      <div class="about-text">
-        <h2 class="section-title">About Me</h2>
-        <p>
-          I am a <strong>quantitatively driven dual-degree student</strong> pursuing a B.Tech in Electrical &
-          Computer
-          Engineering and a BS in Data Science from IIT Madras.
-        </p>
-        <p>
-          My work sits at the intersection of <strong>hardware and intelligence</strong>. I don't just build models;
-          I
-          deploy them on edge devices, optimizing for real-world constraints. From developing <strong>AI-driven
-            traffic
-            systems</strong> to designing <strong>secure embedded access mechanisms</strong>, I am passionate about
-          creating systems that perceive, plan, and act.
-        </p>
-        <p>
-          With a disciplined, research-oriented approach, I aim to bridge the gap between complex algorithms and
-          reliable, scalable physical systems.
-        </p>
-      </div>
-
-      <div class="about-stats">
-        <div class="stat-item">
-          <span class="stat-number">2+</span>
-          <span class="stat-label">Degrees Pursuing</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">5+</span>
-          <span class="stat-label">Major Projects</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">1</span>
-          <span class="stat-label">Research Paper</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section reveal">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-wrapper">
-      <div class="skill-category">
-        <h3>Programming</h3>
-        <div class="skill-tags">
-          <span>Python</span>
-          <span>SQL</span>
-          <span>C</span>
-          <span>MATLAB</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Data & Tools</h3>
-        <div class="skill-tags">
-          <span>Pandas</span>
-          <span>Power BI</span>
-          <span>Excel</span>
-          <span>NumPy</span>
-          <span>Scikit-learn</span>
-          <span>Cognos</span>
-          <span>ETL</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Domains</h3>
-        <div class="skill-tags">
-          <span>Data Management</span>
-          <span>Business Data Analytics</span>
-          <span>Retail Analytics</span>
-          <span>Smart Mobility Analytics</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="section alt reveal">
-    <h2 class="section-title">Education</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>B.Tech – Electrical & Computer Engineering</h3>
-        <p>Amrita School of Engineering, Coimbatore</p>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Aug 2023 – Present | GPA:
-          8.20/10.0
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>BS – Data Science & Applications</h3>
-        <p>IIT Madras</p>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Sept 2023 - Present | Diploma
-          Level
-          Ongoing</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="section reveal">
-    <h2 class="section-title">Certifications</h2>
-    <div class="cert-grid">
-
-      <!-- Cert Item 1 -->
-      <div class="cert-card">
-        <div class="cert-header">
-          <div class="cert-provider-logo">
-            <i class="fab fa-ibm"></i>
-          </div>
-          <div class="cert-meta">
-            <span class="cert-issuer">IBM</span>
-            <span class="cert-date">Issued 2024</span>
-          </div>
-        </div>
-
-        <div class="cert-body">
-          <h3>Data Analyst Professional Certificate</h3>
-          <p>9-course series mastering the full data science stack: Python, SQL, Excel, and Cognos. Validated
-            proficiency in data wrangling, analysis, and visualization for business intelligence.</p>
-        </div>
-
-        <div class="cert-footer">
-          <a href="#" class="cert-link" target="_blank">
-            <span>Show Credential</span>
-            <i class="fas fa-external-link-alt"></i>
-          </a>
-          <div class="cert-decoration">
-            <i class="fas fa-certificate"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Placeholder for future certs (Optional, or just one centered) -->
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section reveal">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="grid">
-      <!-- Project 1: Traffic -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>AI-Driven Traffic Monitoring</h3>
-          <p class="project-desc">AI-powered intelligent traffic system integrating YOLOv8 object detection and
-            LiDAR
-            fusion within CARLA simulation. Predicts real-time congestion. Presented this work as a research paper
-            titled at ICISCoIS 2026, PSG College of Technology.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>YOLOv8</span>
-            <span>PyTorch</span>
-            <span>OpenCV</span>
-          </div>
-          <button onclick="openProject('traffic')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- Project 2: Crime -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>Crime Type Prediction</h3>
-          <p class="project-desc">Machine learning classification model to predict crime types in Indian districts.
-            Achieved 95% accuracy using Random Forest Classifier on 9000 rows of historical data with 29 features.
-          </p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Scikit-learn</span>
-            <span>Random Forest</span>
-          </div>
-          <button onclick="openProject('crime')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- Project 3: Route -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>Optimal Route Finder</h3>
-          <p class="project-desc">Path-optimization program utilizing Google Maps API to evaluate routes based on
-            distance, time, and traffic data.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Google Maps API</span>
-            <span>JSON</span>
-          </div>
-          <button onclick="openProject('route')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- Project 4: Embedded Clock -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>Digital Clock (ARM)</h3>
-          <p class="project-desc">Complete embedded digital clock system on NUCLEO-F401RE with alarms, stopwatch,
-            and
-            UART connectivity.</p>
-          <div class="project-tags">
-            <span>Embedded C</span>
-            <span>ARM Cortex-M4</span>
-            <span>UART</span>
-          </div>
-          <button onclick="openProject('embedded')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- Project 5: Gesture Door -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>Gesture-Based Door Access</h3>
-          <p class="project-desc">Secure door-access mechanism using PIC microcontroller, ultrasonic sensors for
-            gesture
-            detection, and servo control.</p>
-          <div class="project-tags">
-            <span>Embedded C</span>
-            <span>PIC16F877A</span>
-            <span>Sensors</span>
-          </div>
-          <button onclick="openProject('gesture')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- Project 6: Face Booking -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>Facial Recognition Hall Booking</h3>
-          <p class="project-desc">Smart college hall booking solution using face recognition for access validation,
-            paired with microcontroller-enabled automated power control. Enhanced security and improved operational
-            efficiency.</p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>OpenCV</span>
-            <span>Raspberry Pi</span>
-            <span>IoT</span>
-          </div>
-          <button onclick="openProject('face')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- Project 7: Retail -->
-      <div class="card project-card">
-        <div class="project-content">
-          <h3>Retail Analytics</h3>
-          <p class="project-desc">Real-world business analytics project for a retail company to understand key
-            operational challenges. Identified peak-hour staffing inefficiencies and gaps in pricing
-            competitiveness.
-          </p>
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>Business Analytics</span>
-          </div>
-          <button onclick="openProject('retail')" class="project-link">View Project <i
-              class="fas fa-arrow-right"></i></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="section reveal">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-container">
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>What role fits you best?</span>
-          <i class="fas fa-plus"></i>
-        </button>
-        <div class="faq-answer">
-          <p>I am looking for roles that bridge <strong>Data Science and Embedded Systems</strong>. Specifically,
-            positions like <strong>Computer Vision Engineer, Edge AI Developer, or Data Scientist</strong> where I
-            can
-            apply my dual-degree background to build intelligent, real-world systems.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Are you willing to relocate?</span>
-          <i class="fas fa-plus"></i>
-        </button>
-        <div class="faq-answer">
-          <p><strong>Yes.</strong> I am based in Coimbatore but am fully open to relocating anywhere in India or
-            internationally for the right opportunity. I am also comfortable with remote or hybrid work
-            environments.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>When can you join?</span>
-          <i class="fas fa-plus"></i>
-        </button>
-        <div class="faq-answer">
-          <p>I am available for <strong>internships immediately</strong> (short or long-term). For full-time
-            employment,
-            I will be available starting <strong>May 2026</strong>, after completing my dual degrees.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Do you have hands-on hardware experience?</span>
-          <i class="fas fa-plus"></i>
-        </button>
-        <div class="faq-answer">
-          <p>Yes. Beyond simulations, I have built physical prototypes using <strong>Raspberry Pi, ARM Cortex-M4
-              (NUCLEO), and PIC microcontrollers</strong>. My projects include interfacing sensors (LiDAR,
-            ultrasonic),
-            actuators (servos), and communication modules (UART/IoT).</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section alt reveal">
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-subtext">
-      I'm currently looking for new opportunities in AI and Data Science. Whether you have a question, a project
-      idea,
-      or
-      just want to say hi, my inbox is always open!
-    </p>
-
-    <div class="contact-container">
-      <!-- Contact Info Cards -->
-      <div class="contact-info">
-        <div class="contact-card">
-          <i class="fas fa-envelope icon"></i>
-          <h3>Email</h3>
-          <p>avanthika.shydh05@gmail.com</p>
-          <a href="mailto:avanthika.shydh05@gmail.com" class="contact-action">Send a message</a>
-        </div>
-
-        <div class="contact-card">
-          <i class="fab fa-linkedin icon"></i>
-          <h3>LinkedIn</h3>
-          <p>Connect professionally</p>
-          <a href="https://www.linkedin.com/in/avanthika-shydh-a5219131a" target="_blank" rel="noopener"
-            class="contact-action">Connect</a>
-        </div>
-
-        <div class="contact-card">
-          <i class="fab fa-github icon"></i>
-          <h3>GitHub</h3>
-          <p>Explore my repositories</p>
-          <a href="https://github.com/Avanthika-Shydh" target="_blank" rel="noopener" class="contact-action">Follow</a>
-        </div>
-
-        <div class="contact-card">
-          <i class="fas fa-phone icon"></i>
-          <h3>Phone</h3>
-          <p>+91 9150646758</p>
-          <a href="tel:+919150646758" class="contact-action">Call Now</a>
-        </div>
-      </div>
-
-      <!-- Simple Contact Message -->
-      <div class="contact-note">
-        <p><i class="fas fa-map-marker-alt"></i> Based in Coimbatore, India • Open to Remote & Relocation</p>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <h2>Avanthika Shydh</h2>
-        <p>Crafting digital experiences with passion, precision, and purpose.</p>
-      </div>
-
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 Avanthika Shydh. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- MODAL -->
+  <!-- MODALS (Keep in index for global access logic) -->
   <div class="modal-overlay" id="projectModal">
     <div class="modal-content">
       <div class="modal-header">
@@ -498,28 +61,19 @@
           <div class="modal-img-placeholder">
             <i class="fas fa-image"></i>
           </div>
-          <div class="modal-img-placeholder">
-            <i class="fas fa-image"></i>
-          </div>
-          <div class="modal-img-placeholder">
-            <i class="fas fa-image"></i>
-          </div>
         </div>
         <p class="modal-description" id="modalDescription">Description goes here...</p>
         <h4 class="modal-subtitle">Technologies Used</h4>
         <ul class="modal-tech-list" id="modalTechList">
-          <!-- Tech items injected here -->
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- Scroll to Top Button -->
   <button id="scrollToTopBtn" aria-label="Scroll to top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <!-- RESUME PREVIEW MODAL -->
   <div class="modal-overlay" id="resumeModal">
     <div class="modal-content resume-modal-content">
       <div class="modal-header">
@@ -529,9 +83,9 @@
         </button>
       </div>
       <div class="modal-body resume-body">
-        <iframe src="resume.pdf" class="resume-frame" title="Resume PDF"></iframe>
+        <iframe src="assets/avi/resume.pdf" class="resume-frame" title="Resume PDF"></iframe>
         <div class="resume-actions">
-          <a href="resume.pdf" class="btn-primary" download>
+          <a href="assets/avi/resume.pdf" class="btn-primary" download>
             <i class="fas fa-download"></i> Download PDF
           </a>
         </div>
@@ -539,6 +93,7 @@
     </div>
   </div>
 
+  <!-- LOAD SCRIPTS -->
   <script src="script.js"></script>
 
 </body>

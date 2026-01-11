@@ -80,9 +80,32 @@
 }
 
 /* Mobile Tweaks */
+/* Mobile Tweaks - Horizontal Scroll */
 @media (max-width: 768px) {
     .contact-info {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
         gap: 16px;
+        padding-bottom: 20px;
+        /* Space for scrollbar/shadow */
+        scroll-snap-type: x mandatory;
+        margin-right: -24px;
+        /* Counteract section padding */
+        padding-right: 24px;
+        /* Add end padding */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .contact-info::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .contact-card {
+        min-width: 260px;
+        flex: 0 0 auto;
+        scroll-snap-align: center;
     }
 }
