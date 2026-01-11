@@ -1,110 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Avanthika Shydh | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfolio of Avanthika Shydh - Dual-degree undergraduate specializing in AI-driven perception systems, embedded systems, and data science." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="splash.css" />
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="placeholders.css" />
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">Avanthika Shydh</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <!-- SPLASH SCREEN -->
+  <div id="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo">Avanthika Shydh</div>
+      <p class="splash-tagline">Building Intelligent Systems</p>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
   </div>
-</nav>
 
-<!-- HERO -->
-<header class="hero">
-  <h1 class="hero-name">
-    Hi, I’m <span>Avanthika Shydh</span>
-  </h1>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Avanthika Shydh</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <h2 class="hero-tagline">
-    Building intelligent systems from code to deployment
-  </h2>
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="hero-name">
+      Hi, I’m <span>Avanthika Shydh</span>
+    </h1>
 
-  <p class="hero-description">
-    Dual-degree undergraduate specializing in AI-driven perception systems,
-    embedded systems, and data science.
-  </p>
+    <h2 class="hero-tagline">
+      Building intelligent systems from code to deployment
+    </h2>
 
-  <a href="resume.pdf" class="btn-primary" download>
-    Download Resume
-  </a>
-</header>
-
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2 class="section-title">About Me</h2>
-
-  <div class="card">
-    <p>
-      Hi, I’m Avanthika Shydh. Academically, I’m a dual-degree undergraduate pursuing Electrical and Computer Engineering alongside Data Science. In practice, I’m a systems-focused builder who enjoys working at the intersection of intelligence, hardware, and data.
-
-I’m most engaged when translating ideas into functioning systems—whether that means designing AI-driven perception pipelines, developing embedded solutions, or applying machine learning to real-world engineering problems. I care not just about making systems work, but about making them robust, scalable, and meaningful in real environments.
-
-I approach engineering with a balance of analytical rigor and practical execution, aiming to build solutions that are technically sound, thoughtfully designed, and grounded in real-world impact.
+    <p class="hero-description">
+      Dual-degree undergraduate specializing in AI-driven perception systems,
+      embedded systems, and data science.
     </p>
-  </div>
-</section>
 
-<!-- EDUCATION -->
-<section id="education" class="section alt">
-  <h2 class="section-title">Education</h2>
+    <div class="hero-buttons">
+      <a href="resume.pdf" class="btn-primary" download>
+        Download Resume
+      </a>
 
-  <div class="grid">
-    <div class="card">
-      <h3>B.Tech – Electrical & Computer Engineering</h3>
-      <p>Amrita Vishwa Vidyapeetham, Coimbatore</p>
     </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <h2 class="section-title">About Me</h2>
 
     <div class="card">
-      <h3>BS – Data Science & Applications</h3>
-      <p>IIT Madras</p>
+      <p>
+        Quantitatively driven dual-degree engineering student pursuing a B.Tech in Electrical and Computer Engineering
+        and a BS in Data Science & Applications from IIT Madras, with a strong foundation in machine learning and data
+        science theory and practical experience in Python, C, SQL, and analytical problem-solving. Trained in scalable
+        and enterprise-grade systems through coursework in Cloud Computing and Big Data Analytics, with a disciplined,
+        research-oriented approach to building reliable and well-governed data solutions. Brings strong quantitative
+        reasoning and the ability to communicate complex technical concepts clearly and concisely, enabling effective
+        collaboration with cross-functional and non-technical stakeholders in a business-focused environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section reveal">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-wrapper">
+      <div class="skill-category">
+        <h3>Programming</h3>
+        <div class="skill-tags">
+          <span>Python</span>
+          <span>SQL</span>
+          <span>C</span>
+          <span>MATLAB</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Data & Tools</h3>
+        <div class="skill-tags">
+          <span>Pandas</span>
+          <span>Power BI</span>
+          <span>Excel</span>
+          <span>NumPy</span>
+          <span>Scikit-learn</span>
+          <span>Cognos</span>
+          <span>ETL</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Domains</h3>
+        <div class="skill-tags">
+          <span>Data Management</span>
+          <span>Business Data Analytics</span>
+          <span>Retail Analytics</span>
+          <span>Smart Mobility Analytics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section alt reveal">
+    <h2 class="section-title">Education</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>B.Tech – Electrical & Computer Engineering</h3>
+        <p>Amrita School of Engineering, Coimbatore</p>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Aug 2023 – Present | GPA: 8.20/10.0
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>BS – Data Science & Applications</h3>
+        <p>IIT Madras</p>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Sept 2023 - Present | Diploma Level
+          Ongoing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section reveal">
+    <h2 class="section-title">Certifications</h2>
+    <div class="card">
+      <h3>IBM Data Analyst Professional Certificate</h3>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section reveal">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="grid">
+      <!-- Project 1: Traffic -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>AI-Driven Traffic Monitoring</h3>
+          <p class="project-desc">AI-based traffic monitoring system leveraging YOLOv8 object detection and CARLA
+            simulation. Predicts real-time congestion and enables adaptive traffic control.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>YOLOv8</span>
+            <span>PyTorch</span>
+            <span>OpenCV</span>
+          </div>
+          <button onclick="openProject('traffic')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Project 2: Crime -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>Crime Type Prediction</h3>
+          <p class="project-desc">Machine learning classification model to predict crime types in Indian districts.
+            Achieved 95% accuracy using Random Forest Classifier.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Scikit-learn</span>
+            <span>Random Forest</span>
+          </div>
+          <button onclick="openProject('crime')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Project 3: Route -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>Optimal Route Finder</h3>
+          <p class="project-desc">Path-optimization program utilizing Google Maps API to evaluate routes based on
+            distance, time, and traffic data.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Google Maps API</span>
+            <span>JSON</span>
+          </div>
+          <button onclick="openProject('route')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Project 4: Embedded Clock -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>Digital Clock (ARM)</h3>
+          <p class="project-desc">Complete embedded digital clock system on NUCLEO-F401RE with alarms, stopwatch, and
+            UART connectivity.</p>
+          <div class="project-tags">
+            <span>Embedded C</span>
+            <span>ARM Cortex-M4</span>
+            <span>UART</span>
+          </div>
+          <button onclick="openProject('embedded')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Project 5: Gesture Door -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>Gesture-Based Door Access</h3>
+          <p class="project-desc">Secure door-access mechanism using PIC microcontroller, ultrasonic sensors for gesture
+            detection, and servo control.</p>
+          <div class="project-tags">
+            <span>Embedded C</span>
+            <span>PIC16F877A</span>
+            <span>Sensors</span>
+          </div>
+          <button onclick="openProject('gesture')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Project 6: Face Booking -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>Facial Recognition Hall Booking</h3>
+          <p class="project-desc">Smart hall-booking app with facial verification for automated power control using
+            Raspberry Pi and OpenCV.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>OpenCV</span>
+            <span>Raspberry Pi</span>
+            <span>IoT</span>
+          </div>
+          <button onclick="openProject('face')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Project 7: Retail -->
+      <div class="card project-card">
+        <div class="project-content">
+          <h3>Retail Analytics</h3>
+          <p class="project-desc">Business analytics for optimizing staffing and sales by analyzing real-world data on
+            footfall and competitor pricing.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>Business Analytics</span>
+          </div>
+          <button onclick="openProject('retail')" class="project-link">View Project <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt reveal">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtext">
+      I'm currently looking for new opportunities in AI and Data Science. Whether you have a question, a project idea,
+      or
+      just want to say hi, my inbox is always open!
+    </p>
+
+    <div class="contact-container">
+      <!-- Contact Info Cards -->
+      <div class="contact-info">
+        <div class="contact-card">
+          <i class="fas fa-envelope icon"></i>
+          <h3>Email</h3>
+          <p>avanthika.shydh05@gmail.com</p>
+          <a href="mailto:avanthika.shydh05@gmail.com" class="contact-action">Send a message</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fab fa-linkedin icon"></i>
+          <h3>LinkedIn</h3>
+          <p>Connect professionally</p>
+          <a href="https://www.linkedin.com/in/avanthika-shydh-a5219131a" target="_blank"
+            class="contact-action">Connect</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fab fa-github icon"></i>
+          <h3>GitHub</h3>
+          <p>Explore my repositories</p>
+          <a href="https://github.com/Avanthika-Shydh" target="_blank" class="contact-action">Follow</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fas fa-phone icon"></i>
+          <h3>Phone</h3>
+          <p>+91 9150646758</p>
+          <a href="tel:+919150646758" class="contact-action">Call Now</a>
+        </div>
+      </div>
+
+      <!-- Simple Contact Message -->
+      <div class="contact-note">
+        <p><i class="fas fa-map-marker-alt"></i> Based in Chennai, India • Open to Remote & Relocation</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Avanthika Shydh
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Project Title</h3>
+        <button type="button" class="close-modal-btn" id="closeModalBtn" title="Close Modal" aria-label="Close Modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description" id="modalDescription">Description goes here...</p>
+        <h4 class="modal-subtitle">Technologies Used</h4>
+        <ul class="modal-tech-list" id="modalTechList">
+          <!-- Tech items injected here -->
+        </ul>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
-  <h2 class="section-title">Projects</h2>
-
-  <p class="section-subtext">
-    Selected academic, research, and applied engineering projects.
-  </p>
-
-  <a href="projects/index.html" class="btn-secondary">
-    View All Projects
-  </a>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section alt">
-  <h2 class="section-title">Contact Me</h2>
-
-  <div class="card">
-    <p><strong>Email:</strong> avanthika.shydh05@gmail.com</p>
-    
-    <p><strong>Phone:</strong>+91 9150646758</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  © 2026 Avanthika Shydh
-</footer>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
