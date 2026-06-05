@@ -95,6 +95,12 @@ const projectsData = {
     image: "assets/avi/projects/retail/overview.png",
     description: "Delivered a business analytics project for a clothing retail store by collecting and analyzing real-world data on sales, footfall, and competitor pricing. Identified operational challenges such as peak-hour understaffing, price competitiveness gaps, and the shift toward online shopping. Provided data-driven recommendations that improved staffing efficiency and enhanced customer experience.",
     tech: ["Python", "Pandas", "Scikit-learn", "Excel", "Business Analytics"]
+  },
+  robot: {
+    title: "Smart Lab Management and Robotic-Arm Simulation System",
+    image: "assets/avi/projects/robot/overview.png",
+    description: "Engineered a scalable backend orchestration platform for autonomous chemical storage, retrieval, and robotic task execution using FastAPI and relational database architecture. Implemented workflow orchestration, task lifecycle management, real-time execution simulation, and 3D rack visualization to enhance operational reliability, traceability, and intelligent resource coordination.",
+    tech: ["Python", "FastAPI", "SQL", "3D Visualization", "REST API's", "Scalable Backend Architecture"]
   }
 };
 
@@ -169,7 +175,7 @@ window.openProject = function (projectId) {
 
   if (modalTitle) modalTitle.textContent = project.title;
   if (modalDesc) modalDesc.textContent = project.description;
-  
+
   if (modalTechList) {
     modalTechList.innerHTML = '';
     project.tech.forEach(tech => {
