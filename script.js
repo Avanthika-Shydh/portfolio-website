@@ -92,7 +92,7 @@ const projectsData = {
   },
   retail: {
     title: "Retail Analytics for Optimizing Staffing and Sales",
-    image: "assets/avi/projects/retail/overview.png",
+    image: "assets/avi/projects/retail/overview_v2.png",
     description: "Delivered a business analytics project for a clothing retail store by collecting and analyzing real-world data on sales, footfall, and competitor pricing. Identified operational challenges such as peak-hour understaffing, price competitiveness gaps, and the shift toward online shopping. Provided data-driven recommendations that improved staffing efficiency and enhanced customer experience.",
     tech: ["Python", "Pandas", "Scikit-learn", "Excel", "Business Analytics"]
   },
