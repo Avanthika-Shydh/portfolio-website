@@ -86,7 +86,7 @@ const projectsData = {
   },
   face: {
     title: "Facial Recognition–Based Hall Booking",
-    image: "assets/avi/projects/face/overview.png",
+    image: "assets/avi/projects/face/overview_v5.png",
     description: "Developing a smart hall-booking application where users book college halls by selecting a date and duration. During booking, the system captures the user’s facial data. On the event day, the hall lights and power systems turn on only after facial verification using a Raspberry Pi. Ensures authenticated access, prevents misuse, and enables automated power control.",
     tech: ["Python", "OpenCV", "Raspberry Pi", "IoT Integration", "SQLite / Firebase"]
   },
