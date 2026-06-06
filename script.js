@@ -101,6 +101,12 @@ const projectsData = {
     image: "assets/avi/projects/robot/overview.png",
     description: "Engineered a scalable backend orchestration platform for autonomous chemical storage, retrieval, and robotic task execution using FastAPI and relational database architecture. Implemented workflow orchestration, task lifecycle management, real-time execution simulation, and 3D rack visualization to enhance operational reliability, traceability, and intelligent resource coordination.",
     tech: ["Python", "FastAPI", "SQL", "3D Visualization", "REST API's", "Scalable Backend Architecture"]
+  },
+  portal: {
+    title: "Placement Portal Application",
+    image: "assets/avi/projects/portal/overview.png",
+    description: "Developed a role-based placement management platform using Flask and SQLAlchemy, enabling seamless interaction between students, companies, and administrators. Designed a normalized relational database schema, implemented secure authentication and authorization workflows, automated application tracking, and built approval pipelines to streamline recruitment operations and ensure data integrity.",
+    tech: ["Python", "Flask", "SQLAlchemy", "SQLite", "HTML/CSS", "Bootstrap", "Jinja2", "RESTful Architecture", "DataBase Design", "Authentication & Authorization"]
   }
 };
 
