@@ -56,7 +56,7 @@ function initFAQ() {
 const projectsData = {
   traffic: {
     title: "AI-Driven Traffic Monitoring System",
-    image: "assets/avi/projects/traffic/overview_v2.png",
+    image: "assets/avi/projects/traffic/overview_v3.png",
     description: "Engineered an AI-based traffic monitoring system leveraging YOLOv8 object detection and CARLA simulation. The system predicts real-time congestion and enables adaptive traffic control in 6G-enabled smart cities. Implemented proactive voice and SMS alert mechanisms, advancing safe, efficient, and autonomous urban mobility. Presented this work as a research paper titled at ICISCoIS 2026, PSG College of Technology.",
     tech: ["Python", "YOLOv8", "PyTorch", "OpenCV", "CARLA Simulator"]
   },
@@ -68,19 +68,19 @@ const projectsData = {
   },
   route: {
     title: "Optimal Route Finder Using Google Maps API",
-    image: "assets/avi/projects/route/overview.png",
+    image: "assets/avi/projects/route/overview_v2.png",
     description: "Developed a path-optimization program that utilizes the Google Maps API to fetch and evaluate multiple driving routes between a given origin and destination. The system compares routes based on distance, estimated travel time, live traffic data, and road conditions. It then selects and outputs the most optimal route for the user based on a weighted evaluation of all factors.",
     tech: ["Python", "Google Maps API", "REST APIs", "JSON Handling", "Data Parsing"]
   },
   embedded: {
     title: "Digital Clock and Event Scheduler Using ARM Microcontroller",
-    image: "assets/avi/projects/embedded/overview.png",
+    image: "assets/avi/projects/embedded/overview_v2.png",
     description: "Developed a complete embedded digital clock system on the NUCLEO-F401RE ARM microcontroller with an external Real-Time Clock module. Features include real-time display, alarms, countdown timer, stopwatch, and scheduled event notifications. Integrated PC connectivity using UART for monitoring and control operations.",
     tech: ["Embedded C", "ARM Cortex-M4", "Keil uVision", "Real-Time Clock (RTC)", "UART Communication"]
   },
   gesture: {
     title: "Gesture-Based Door Access System",
-    image: "assets/avi/projects/gesture/overview.png",
+    image: "assets/avi/projects/gesture/overview_v2.png",
     description: "Implemented a secure door-access mechanism using a PIC16F877A microcontroller. The system detects hand gestures using ultrasonic sensors, activates the display, and requests a password. Upon correct authentication, the system triggers a servo motor to unlock the door. Includes buzzer alerts and LCD prompts for user guidance.",
     tech: ["Embedded C", "PIC16F877A", "MPLAB X", "Ultrasonic Sensors", "Servo Motor Control"]
   },
