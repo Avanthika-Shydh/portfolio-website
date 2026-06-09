@@ -237,6 +237,7 @@ async function loadAllSections() {
     { id: 'hero-container', file: 'sections/hero.html' },
     { id: 'about-container', file: 'sections/about.html' },
     { id: 'skills-container', file: 'sections/skills.html' },
+    { id: 'experience-container', file: 'sections/experience.html' },
     { id: 'education-container', file: 'sections/education.html' },
     { id: 'certifications-container', file: 'sections/certifications.html' },
     { id: 'projects-container', file: 'sections/projects.html' },

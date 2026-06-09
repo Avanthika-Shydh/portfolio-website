@@ -711,6 +711,33 @@ body {
   line-height: 1.7;
 }
 
+.timeline-item ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+
+.timeline-item li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.timeline-item li:last-child {
+  margin-bottom: 0;
+}
+
 /* =========================================
    PROJECT CARDS & SOCIALS
    ========================================= */
