@@ -57,43 +57,43 @@ const projectsData = {
   traffic: {
     title: "AI-Driven Traffic Monitoring System",
     image: "assets/avi/projects/traffic/overview_v3.png",
-    description: "Engineered an AI-based traffic monitoring system leveraging YOLOv8 object detection and CARLA simulation. The system predicts real-time congestion and enables adaptive traffic control in 6G-enabled smart cities. Implemented proactive voice and SMS alert mechanisms, advancing safe, efficient, and autonomous urban mobility. Presented this work as a research paper titled at ICISCoIS 2026, PSG College of Technology.",
+    description: "Designed and evaluated an end-to-end intelligent traffic monitoring system using YOLOv8 object detection and LiDAR fusion within the CARLA simulation environment. Engineered deep learning models to predict real-time vehicle congestion patterns and dynamically adjust signal durations. Developed automated alert pipelines with integrated voice and SMS notification APIs for critical incident responses. The research was published and presented at the international conference ICISCoIS 2026 at PSG College of Technology.",
     tech: ["Python", "YOLOv8", "PyTorch", "OpenCV", "CARLA Simulator"]
   },
   crime: {
     title: "Crime Type Prediction Using Random Forest Classifier",
     image: "assets/avi/projects/crime/overview.png",
-    description: "Built a machine learning classification model to predict the type of crime most likely to occur in Indian districts. Worked with a dataset of 9000 rows and 29 features, applying extensive data preprocessing, feature engineering, district-wise categorical encoding, and hyperparameter tuning. Achieved 95% accuracy, evaluated with accuracy, precision, recall, and F1-score metrics.",
+    description: "Engineered a high-performance machine learning pipeline using a Random Forest Classifier to predict localized crime type occurrences across various Indian districts. Performed robust feature engineering, target encoding, class imbalance handling, and grid-search hyperparameter optimization on a comprehensive dataset of 9,000 records. Achieved a classification accuracy of 95%, rigorously validated using precision, recall, and F1-score metrics to ensure reliability.",
     tech: ["Python", "Pandas", "NumPy", "Scikit-learn", "Random Forest Classifier"]
   },
   route: {
     title: "Optimal Route Finder Using Google Maps API",
     image: "assets/avi/projects/route/overview_v2.png",
-    description: "Developed a path-optimization program that utilizes the Google Maps API to fetch and evaluate multiple driving routes between a given origin and destination. The system compares routes based on distance, estimated travel time, live traffic data, and road conditions. It then selects and outputs the most optimal route for the user based on a weighted evaluation of all factors.",
+    description: "Developed a route-optimization application that integrates with Google Maps APIs to fetch, parse, and evaluate multi-modal driving routes dynamically. Implemented a weighted decision-making algorithm that analyzes live traffic flows, historical congestion patterns, distance, and road conditions. The system computes and recommends the absolute optimal route, substantially reducing travel time and fuel consumption.",
     tech: ["Python", "Google Maps API", "REST APIs", "JSON Handling", "Data Parsing"]
   },
   embedded: {
     title: "Digital Clock and Event Scheduler Using ARM Microcontroller",
     image: "assets/avi/projects/embedded/overview_v2.png",
-    description: "Developed a complete embedded digital clock system on the NUCLEO-F401RE ARM microcontroller with an external Real-Time Clock module. Features include real-time display, alarms, countdown timer, stopwatch, and scheduled event notifications. Integrated PC connectivity using UART for monitoring and control operations.",
+    description: "Designed and built a multi-functional embedded digital clock and scheduler system on the STM32 NUCLEO-F401RE (ARM Cortex-M4) microcontroller. Configured peripheral hardware interfaces including timers, interrupts, and I2C communication with an external Real-Time Clock (RTC) module. Developed features for real-time display, multi-alarm scheduling, stopwatch, and implemented serial communication via UART for host PC control and status monitoring.",
     tech: ["Embedded C", "ARM Cortex-M4", "Keil uVision", "Real-Time Clock (RTC)", "UART Communication"]
   },
   gesture: {
     title: "Gesture-Based Door Access System",
     image: "assets/avi/projects/gesture/overview_v2.png",
-    description: "Implemented a secure door-access mechanism using a PIC16F877A microcontroller. The system detects hand gestures using ultrasonic sensors, activates the display, and requests a password. Upon correct authentication, the system triggers a servo motor to unlock the door. Includes buzzer alerts and LCD prompts for user guidance.",
+    description: "Engineered a contactless gesture-controlled authentication and door locking system powered by a PIC16F877A microcontroller. Developed low-level drivers in Embedded C to interface ultrasonic distance sensors, a character LCD, and a piezoelectric buzzer. The system interprets distance thresholds as directional gestures to wake the interface, verify passcode input, and actuate a servo-controlled locking mechanism.",
     tech: ["Embedded C", "PIC16F877A", "MPLAB X", "Ultrasonic Sensors", "Servo Motor Control"]
   },
   face: {
     title: "Facial Recognition–Based Hall Booking",
     image: "assets/avi/projects/face/overview_v5.png",
-    description: "Developing a smart hall-booking application where users book college halls by selecting a date and duration. During booking, the system captures the user’s facial data. On the event day, the hall lights and power systems turn on only after facial verification using a Raspberry Pi. Ensures authenticated access, prevents misuse, and enables automated power control.",
+    description: "Developing an IoT-enabled smart hall reservation and energy management system integrating OpenCV facial recognition on a Raspberry Pi. The system automates reservation validation by verifying user identity at the venue, subsequently triggering relay circuits to power lighting and HVAC systems. This eliminates energy waste, unauthorized usage, and streamlines facility operations.",
     tech: ["Python", "OpenCV", "Raspberry Pi", "IoT Integration", "SQLite / Firebase"]
   },
   retail: {
     title: "Retail Analytics for Optimizing Staffing and Sales",
     image: "assets/avi/projects/retail/overview_v2.png",
-    description: "Delivered a business analytics project for a clothing retail store by collecting and analyzing real-world data on sales, footfall, and competitor pricing. Identified operational challenges such as peak-hour understaffing, price competitiveness gaps, and the shift toward online shopping. Provided data-driven recommendations that improved staffing efficiency and enhanced customer experience.",
+    description: "Conducted a comprehensive retail analytics study for a physical clothing brand, analyzing real-world data points across footfall patterns, seasonal sales, and local competitor pricing. Utilized Python (Pandas/NumPy) for exploratory data analysis, revealing critical operational inefficiencies like peak-hour staffing gaps. Delivered actionable, data-backed strategies that optimized staffing schedules and improved overall profit margins.",
     tech: ["Python", "Pandas", "Scikit-learn", "Excel", "Business Analytics"]
   },
   robot: {
