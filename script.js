@@ -269,7 +269,8 @@ async function loadSection(containerId, filePath) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const response = await fetch(filePath);
+  const appVersion = '1.2';
+  const response = await fetch(`${filePath}?v=${appVersion}`);
   if (!response.ok) throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
 
   const html = await response.text();
